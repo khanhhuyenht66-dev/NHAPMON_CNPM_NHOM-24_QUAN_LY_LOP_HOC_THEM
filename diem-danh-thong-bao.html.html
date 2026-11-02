@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Điểm danh & Thông báo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #219150;
+        }
+        .btn-send {
+            background-color: #e67e22;
+        }
+        .btn-send:hover {
+            background-color: #d35400;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>HỆ THỐNG QUẢN LÝ LỚP HỌC THÊM</h1>
+
+    <!-- MỤC 1: QUẢN LÝ ĐIỂM DANH -->
+    <section>
+        <h2>1. Quản lý Điểm danh Học viên</h2>
+        <div class="form-group">
+            <label for="class-select">Chọn lớp học:</label>
+            <select id="class-select">
+                <option>Lớp Toán 10 - Ca 1 (Thứ 2, 4, 6)</option>
+                <option>Lớp Tiếng Anh 11 - Ca 2 (Thứ 3, 5, 7)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Ngày điểm danh:</label>
+            <input type="text" value="02/11/2026" readonly>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã Học Viên</th>
+                    <th>Họ và Tên</th>
+                    <th>Trạng thái Điểm danh</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>HV001</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>
+                        <input type="radio" name="hv1" checked> Có mặt
+                        <input type="radio" name="hv1"> Vắng (Có phép)
+                        <input type="radio" name="hv1"> Vắng (Không phép)
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>HV002</td>
+                    <td>Trần Thị B</td>
+                    <td>
+                        <input type="radio" name="hv2" checked> Có mặt
+                        <input type="radio" name="hv2"> Vắng (Có phép)
+                        <input type="radio" name="hv2"> Vắng (Không phép)
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>HV003</td>
+                    <td>Lê Hoàng C</td>
+                    <td>
+                        <input type="radio" name="hv3"> Có mặt
+                        <input type="radio" name="hv3" checked> Vắng (Có phép)
+                        <input type="radio" name="hv3"> Vắng (Không phép)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <button type="button">Lưu danh sách điểm danh</button>
+    </section>
+
+    <br><hr><br>
+
+    <!-- MỤC 2: QUẢN LÝ THÔNG BÁO -->
+    <section>
+        <h2>2. Gửi Thông báo cho Học viên & Phụ huynh</h2>
+        <form>
+            <div class="form-group">
+                <label for="recipient">Người nhận:</label>
+                <select id="recipient">
+                    <option>Tất cả học viên trong lớp</option>
+                    <option>Chỉ gửi cho phụ huynh học sinh vắng mặt</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="title">Tiêu đề thông báo:</label>
+                <input type="text" id="title" placeholder="Nhập tiêu đề (Ví dụ: Thông báo lịch nghỉ lễ)...">
+            </div>
+            <div class="form-group">
+                <label for="content">Nội dung thông báo:</label>
+                <textarea id="content" rows="4" placeholder="Nhập nội dung chi tiết..."></textarea>
+            </div>
+            <button type="submit" class="btn-send">Gửi Thông báo</button>
+        </form>
+    </section>
+</div>
+
+</body>
+</html>
